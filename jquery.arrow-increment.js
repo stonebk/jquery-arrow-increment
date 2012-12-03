@@ -22,15 +22,66 @@
     /**
      * @static
      * @param {number} value The value to increment.
-     * @param {number} delta The amount to increment by.
      * @param {boolean} decrement Decrement the value instead.
+     * @param {number} [opts.delta] Increment/decrement by the value of delta.
+     * @param {number} [opts.min] The minimum value allowed.
+     * @param {number} [otps.max] The maxiumum value allowed.
      * @return {number} The incremented value.
      */
-    $.arrowIncrement.increment = function (value, delta, decrement) {
+    $.arrowIncrement.compute = function (value, decrement, opts) {
+        var computed, decimals, delta = 1,
+            hasMin = opts && typeof opts.min === 'number',
+            hasMax = opts && typeof opts.max === 'number';
+
+        // check for delta option
+        if (opts && typeof opts.delta == 'number') {
+            delta = opts.delta;
+        }
+
         if (decrement) {
-            return value - delta;
+            // return if already less than the minimum
+            if (hasMin && value < opts.min) {
+                return value;
+            }
+            computed = value - delta;
         } else {
-            return value + delta;
+            // return if already more than the maximum
+            if (hasMax && value > opts.max) {
+                return value;
+            }
+            computed = value + delta;
+        }
+
+        // Correct floating point errors by rounding to the smallest decimal
+        decimals = Math.max(
+            $.arrowIncrement.decimals(value),
+            $.arrowIncrement.decimals(delta)
+        );
+        computed = +computed.toFixed(decimals);
+
+        // If max and min overlap, max takes precedence
+        if (hasMin && computed < opts.min) {
+            computed = opts.min;
+        }
+        if (hasMax && computed > opts.max) {
+            computed = opts.max;
+        }
+
+        return computed;
+    };
+
+    /**
+     * @static
+     * @param {number} value How many decimals places for this value.
+     * @return {number} The number of decimal places.
+     */
+    $.arrowIncrement.decimals = function (value) {
+        var str = '' + value,
+            index = str.indexOf('.');
+        if (index >= 0) {
+            return str.length - 1 - str.indexOf('.');
+        } else {
+            return 0;
         }
     };
 
