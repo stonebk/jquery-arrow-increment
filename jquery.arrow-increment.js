@@ -9,14 +9,35 @@
      * @param {function} [opts.formatFn] A custom format function.
      */
     $.arrowIncrement = function (element, opts) {
-        var $this = $(element);
-        $this.keydown(function (e) {
+        var that = this;
+        this.opts = opts;
+        this.$element = $(element).keydown(function (e) {
             if (e.keyCode === 38) { // up
-                console.log('up');
+                that.increment();
             } else if (e.keyCode === 40) { // down
-                console.log('down');
+                that.decrement();
             }
         });
+    };
+
+    /**
+     * @param {boolean} decrement Decrement the value instead.
+     */
+    $.arrowIncrement.prototype.increment = function (decrement) {
+        var value = this.$element.val(),
+            parsed = $.arrowIncrement.parse(value),
+            computed;
+
+        if (isNaN(parsed)) {
+            return;
+        }
+
+        computed = $.arrowIncrement.compute(parsed, decrement, this.opts);
+        this.$element.val(computed);
+    };
+
+    $.arrowIncrement.prototype.decrement = function () {
+        this.increment(true);
     };
 
     /**
