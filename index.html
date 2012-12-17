@@ -2,12 +2,36 @@
 <html>
   <head>
     <title>jquery-arrow-increment</title>
-  </head>
-  <body>
-    <input type="text" value="1">
-
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="jquery.arrow-increment.js"></script>
-    <script>$('input').arrowIncrement({ delta: 2 });</script>
+  </head>
+  <body>
+    <h1>jquery-arrow-increment</h1>
+
+    <h2>Options</h2>
+
+    <h3>[ default ]</h3>
+    <input id="default" type="text" value="0">
+    <script>$('#default').arrowIncrement();</script>
+
+    <h3>delta: 5</h3>
+    <input id="delta" type="text" value="0">
+    <script>$('#delta').arrowIncrement({ delta: 5 });</script>
+
+    <h3>max: 10, min: 0</h3>
+    <input id="max-min" type="text" value="0">
+    <script>$('#max-min').arrowIncrement({ max: 10, min: 0 });</script>
+
+    <h3>formatFn: function (val) { return '$' + val; }</h3>
+    <input id="formatFn" type="text" value="$0">
+    <script>
+      $('#formatFn').arrowIncrement({
+          formatFn: function (val) {
+              return '$' + val;
+          }
+      });
+    </script>
+
+
   </body>
 </html>
