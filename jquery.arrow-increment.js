@@ -10,7 +10,7 @@
      */
     $.arrowIncrement = function (element, opts) {
         var that = this;
-        this.opts = opts;
+        this.opts = $.extend({}, opts);
         this.$element = $(element).keydown(function (e) {
             if (e.keyCode === 38) { // up
                 that.increment();
@@ -25,14 +25,27 @@
      */
     $.arrowIncrement.prototype.increment = function (decrement) {
         var value = this.$element.val(),
-            parsed = $.arrowIncrement.parse(value),
+            parsed,
             computed;
+
+        // Parse the value
+        if (this.opts.parseFn) {
+            parsed = this.opts.parseFn(value);
+        } else {
+            parsed = $.arrowIncrement.parse(value);
+        }
 
         if (isNaN(parsed)) {
             return;
         }
 
         computed = $.arrowIncrement.compute(parsed, decrement, this.opts);
+
+        // Apply formatting function
+        if (this.opts.formatFn) {
+            computed = this.opts.formatFn(computed);
+        }
+
         this.$element.val(computed);
     };
 
