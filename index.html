@@ -11,7 +11,7 @@
 
     <title>jquery-arrow-increment</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script src="javascripts/jquery.arrow-increment.js"></script>
+    <script src="https://raw.github.com/stonebk/jquery-arrow-increment/master/jquery.arrow-increment.min.js"></script>
   </head>
 
   <body>
@@ -25,8 +25,8 @@
           <h2 id="project_tagline">Allow up/down arrows to increment/decrement input fields</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/stonebk/jquery-arrow-increment/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/stonebk/jquery-arrow-increment/tarball/master">Download this project as a tar.gz file</a>
+              <a class="download_link" href="https://raw.github.com/stonebk/jquery-arrow-increment/master/jquery.arrow-increment.min.js"><span>.min.js</span></a>
+              <a class="download_link" href="https://raw.github.com/stonebk/jquery-arrow-increment/master/jquery.arrow-increment.js"><span>.js</span></a>
             </section>
         </header>
     </div>
@@ -67,16 +67,13 @@
         <input id="format" type="text" value="$0.00">
         <script>$('#format').arrowIncrement({ formatFn: function (value) { return '$' + value.toFixed(2); } });</script>
 
-
-
-
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Jquery-arrow-increment maintained by <a href="https://github.com/stonebk">stonebk</a></p>
+        <p class="copyright">jquery-arrow-increment maintained by <a href="https://github.com/stonebk">stonebk</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>

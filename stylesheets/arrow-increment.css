@@ -4,3 +4,27 @@ input {
     width: 50%;
     margin: 10px 0;
 }
+.download_link {
+    display: block;
+    float: right;
+    width: 80px;
+    height: 85px;
+    overflow: hidden;
+    background: url(../images/sprite_download.png) no-repeat top left;
+    background-size: 85px 170px;
+    margin-left: 10px;
+}
+.download_link:hover {
+    background-position: bottom left;
+}
+.download_link span {
+    display: block;
+    text-align: right;
+    margin: 13px 0 0 3px;
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+}
+#forkme_banner {
+    background-color: #0082fc;
+}
