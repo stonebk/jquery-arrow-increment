@@ -46,7 +46,7 @@
             computed = this.opts.formatFn(computed);
         }
 
-        this.$element.val(computed);
+        this.$element.val(computed).change();
     };
 
     $.arrowIncrement.prototype.decrement = function () {
