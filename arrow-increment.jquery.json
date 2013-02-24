@@ -9,7 +9,7 @@
         "increment",
         "decrement"
     ],
-    "version": "1.0.3",
+    "version": "1.0.4",
     "author": {
         "name": "Brian Stone",
         "url": "https://github.com/stonebk"
@@ -23,6 +23,7 @@
     "bugs": "https://github.com/stonebk/jquery-arrow-increment/issues",
     "homepage": "http://stonebk.github.com/jquery-arrow-increment/",
     "docs": "http://stonebk.github.com/jquery-arrow-increment/",
+    "demo": "http://stonebk.github.com/jquery-arrow-increment/",
     "dependencies": {
         "jquery": ">=1.5"
     }
