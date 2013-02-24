@@ -1,0 +1,35 @@
+{
+    "name": "Arrow Increment",
+    "title": "jQuery Auto Increment",
+    "description": "Use up/down arrows to increment/decrement input fields!",
+    "keywords": [
+        "arrow",
+        "up",
+        "down",
+        "increment",
+        "decrement"
+    ],
+    "version": "1.0.0",
+    "author": {
+        "name": "Brian Stone",
+        "url": "https://github.com/stonebk"
+    },
+    "maintainers": [
+        {
+            "name": "Brian Stone",
+            "url": "https://github.com/stonebk"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/stonebk/jquery-arrow-increment/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/stonebk/jquery-arrow-increment/issues",
+    "homepage": "http://stonebk.github.com/jquery-arrow-increment/",
+    "docs": "http://stonebk.github.com/jquery-arrow-increment/",
+    "dependencies": {
+        "jquery": ">=1.5"
+    }
+}
