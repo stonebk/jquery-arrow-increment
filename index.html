@@ -34,14 +34,14 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>Options</h3>
+        <h2>Options</h2>
 
-        <h4>[default]</h4>
+        <h3>[default]</h3>
         <pre><code>$('input').arrowIncrement();</code></pre>
         <input id="default" type="text" value="0">
         <script>$('#default').arrowIncrement();</script>
 
-        <h4>delta</h4>
+        <h3>delta</h3>
         <pre><code>$('input').arrowIncrement({ delta: 5 });</code></pre>
         <input id="delta" type="text" value="0">
         <script>$('#delta').arrowIncrement({ delta: 5 });</script>
@@ -50,7 +50,7 @@
         <input id="delta-decimal" type="text" value="0">
         <script>$('#delta-decimal').arrowIncrement({ delta: 0.125 });</script>
 
-        <h4>min/max</h4>
+        <h3>min/max</h3>
         <pre><code>$('input').arrowIncrement({
     min: 0,
     max: 10
@@ -58,7 +58,7 @@
         <input id="min-max" type="text" value="0">
         <script>$('#min-max').arrowIncrement({ min: 0, max: 10 });</script>
 
-        <h4>formatFn</h4>
+        <h3>formatFn</h3>
         <pre><code>$('input').arrowIncrement({
     formatFn: function (value) {
         return '$' + value.toFixed(2);
@@ -67,12 +67,18 @@
         <input id="format" type="text" value="$0.00">
         <script>$('#format').arrowIncrement({ formatFn: function (value) { return '$' + value.toFixed(2); } });</script>
 
-        <h4>parseFn</h4>
+        <h3>parseFn</h3>
         <pre><code>$('input').arrowIncrement({
     parseFn: function (value) {
         /* override the default number parser with your own */
     }
 });</code></pre>
+
+        <h2>In the wild...</h3>
+        <p>See jquery-arrow-increment in action:</p>
+        <ul>
+          <li><a href="http://myloancalc.com">myLoanCalc</a></li>
+        </ul>
 
       </section>
     </div>
